@@ -21,6 +21,8 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
+    
     <%= yield %>
+    <%= render 'partial/footer' %>
   </body>
 </html>
