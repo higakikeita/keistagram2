@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   def new
     @post = Post.new
     @post.photos.build
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
       flash[:alert] = "投稿に失敗しました"
     end
   end
+
   private
     def post_params
       params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)
