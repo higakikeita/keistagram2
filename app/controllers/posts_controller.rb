@@ -18,6 +18,9 @@ class PostsController < ApplicationController
       flash[:alert] = "投稿に失敗しました"
     end
   end
+  def show
+    @post = Post.find_by(id: params[:id])
+  end
 
   private
     def post_params
